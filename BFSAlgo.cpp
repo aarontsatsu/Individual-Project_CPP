@@ -2,7 +2,6 @@
 #include <queue>
 #include <set>
 #include <vector>
-#include <list>
 #include <unordered_map>
 #include <iterator>
 #include "Routes.cpp"
@@ -16,7 +15,7 @@ class BFS
     string destinationLoc;
     queue<Node> frontier;
     set<string> exploredSet;
-    list<string> airports;
+    vector<string> airports;
     unordered_map<string, string> airportsToPlaces;
     unordered_map<string, vector<string>> locationToAirportsMap;
 
@@ -86,9 +85,8 @@ bool BFS::equals(list<Routes> firstList, any secondItem)
 }
 
 
-vector<string> BFS::algSearch(string initialLoc, string destinationLoc)
-{
-    vector<string> airports = locationToAirportsMap.at(initialLoc);
+vector<string> BFS::algSearch(string initialLoc, string destinationLoc){
+    airports = locationToAirportsMap.at(initialLoc);
 
     for(string airport:airports)
     {
@@ -121,43 +119,3 @@ vector<string> BFS::algSearch(string initialLoc, string destinationLoc)
         }
     }
 }
-
-
-
-
-// vector<string> BFS::BFS(string initialLoc, string destinationLoc){
-//     queue<Node> frontier;
-//     set<string> exploredSet;
-//     list<string> airports = locationToAirportsMap.get(initialLoc);
-
-//     for(string airport:airports)
-//     {
-//         Node airportNode(NULL, airport, NULL, 0, NULL);
-//         frontier.push(airportNode);
-//     }
-
-//     while(frontier.size() != 0)
-//     {
-//         Node currentNode = frontier.pop();
-//         exploredSet.insert(currentNode.getAirportCode());
-//         list<Routes> successorStates = routesMap.get(currentNode.getAirportCode());
-
-//         if (successorStates != NULL)
-//         {
-//             for(Routes successorState: successorStates)
-//             {
-//                 Node child(currentNode, successorState.getDestinationAirportCode(), successorState.getAirlineCode(), successorState.getStops(), NULL);
-
-//                 if (!(contains(frontier, child)) && !(contains(exploredSet, child.getAirportCode()))){
-//                     string destinationName = airports.at(child.getAirportCode());
-//                     if(destinationName != NULL && destinationName.equals(destinationLoc))
-//                     {
-//                         return child.solutionPath();
-//                     }
-//                 }
-//             }
-//         }
-//         frontier.push(child);
-//     }
-
-// }

@@ -170,7 +170,7 @@ int main() {
 
 
    //reading from the input file
-    ifstream inputFile("kumasi-winnipeg.txt");
+    ifstream inputFile("accra-winnipeg.txt");
     string initialLoc;
     string destinationLoc;
 
@@ -181,7 +181,7 @@ int main() {
    BFS newBFSObj(airportsToPlaces, locationToAirportsMap);
    queue<Node> frontier;
    set<string> exploredSet;
-   list<string> airports = locationToAirportsMap.at(initialLoc);
+   vector<string> airports = locationToAirportsMap.at(initialLoc);
 
 
 
