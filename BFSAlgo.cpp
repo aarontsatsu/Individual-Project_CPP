@@ -88,7 +88,7 @@ bool BFS::equals(list<Routes> firstList, any secondItem)
 
 vector<string> BFS::algSearch(string initialLoc, string destinationLoc)
 {
-    airports = locationToAirportsMap.get(initialLoc);
+    vector<string> airports = locationToAirportsMap.at(initialLoc);
 
     for(string airport:airports)
     {
@@ -110,7 +110,7 @@ vector<string> BFS::algSearch(string initialLoc, string destinationLoc)
                 Node child(currentNode, successorState.getDestinationAirportCode(), successorState.getAirlineCode(), successorState.getStops(), NULL);
 
                 if (!(contains(frontier, child)) && !(contains(exploredSet, child.getAirportCode()))){
-                    string destinationName = airportsToPlaces.get(child.getAirportCode());
+                    string destinationName = airportsToPlaces.at(child.getAirportCode());
                     if((equals(destinationName, NULL) == false) && (equals(destinationName, destinationLoc) == true))
                     {
                         return child.solutionPath();
