@@ -76,7 +76,9 @@ bool BFS::contains(set<string> aSet, string aString)
     return check;
 }
 
-
+/**
+ * method overloading for the equals and contains method
+*/
 bool BFS::equals(Node firstNode, Node secNode)
 {
     return (typeid(firstNode) == typeid(secNode));
