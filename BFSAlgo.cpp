@@ -106,8 +106,7 @@ vector<string> BFS::algSearch(string initialLoc, string destinationLoc){
     /**
      * Techie Delight. (2022, February 6). Iterate through a queue in C++. https://www.techiedelight.com/iterate-through-a-queue-in-cpp/
     */
-    while(frontier.size() != 0)
-    {
+    while(frontier.size() != 0){
         Node currentNode = frontier.pop();
 
         exploredSet.insert(currentNode.getAirportCode());
