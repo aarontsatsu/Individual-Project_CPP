@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
-#include <any>
+
+
 using namespace std;
 
 class Routes{
-    
+
     // instance variables of the Routes class
     protected:
     string airlineCode;
@@ -22,6 +23,9 @@ class Routes{
         this->stops = stops;
     }
 
+    /*
+    * Getters and Setters for the routes class
+    */
     string getAirlineCode()
     {
         return airlineCode;

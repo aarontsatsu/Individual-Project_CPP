@@ -3,7 +3,6 @@
 #include <set>
 #include <vector>
 #include <unordered_map>
-#include <iterator>
 #include "Routes.cpp"
 #include "Node.cpp"
 
@@ -30,7 +29,7 @@ class BFS
 
     bool equals(string firstString, string secondString);
 
-    bool equals(list<Routes> firstList, any secondItem);
+    bool equals(vector<Routes> firstList, any secondItem);
 
     vector<string> algSearch(string initialLoc, string destinationLoc);
 
@@ -79,7 +78,7 @@ bool BFS::equals(string firstString, string secondString)
     return (firstString == secondString);
 }
 
-bool BFS::equals(list<Routes> firstList, any secondItem)
+bool BFS::equals(vector<Routes> firstList, any secondItem)
 {
     return (typeid(firstList) == typeid(secondItem));
 }
@@ -99,7 +98,7 @@ vector<string> BFS::algSearch(string initialLoc, string destinationLoc){
         Node currentNode = frontier.pop();
 
         exploredSet.insert(currentNode.getAirportCode());
-        list<Routes> successorStates = routesMap.get(currentNode.getAirportCode());
+        vector<Routes> successorStates = routesMap.get(currentNode.getAirportCode());
 
         if (equals(successorStates, NULL) == false)
         {
