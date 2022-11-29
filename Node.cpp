@@ -4,6 +4,12 @@
 #include "Routes.cpp"
 using namespace std;
 
+/**
+ * The Node Class creates is a representation of a node for which
+ * the BFS algorithm will work with to generate a solution
+ * It has getters and setters, and a solutionPath method to return the solution path
+ * for routing.
+*/
 class Node{
 
     private:
@@ -111,9 +117,7 @@ void Node:: setSuccessors(vector<Routes> successors) {
 
 
 /**
- * This function takes the current node  and returns an ArrayList of Strings from the start node to the current node
- *
- * @return The solution path is being returned.
+ * solutionPath returns a list of routes from the start node to destination node
  */
 
 vector<string> Node:: solutionPath(){
