@@ -181,7 +181,7 @@ int main() {
    BFS newBFSObj(airportsToPlaces, locationToAirportsMap);
    queue<Node> frontier;
    set<string> exploredSet;
-   list<string> airports = locationToAirportsMap.get(initialLoc);
+   list<string> airports = locationToAirportsMap.at(initialLoc);
 
 
 
