@@ -1,5 +1,10 @@
 #include <iostream>
 #include <string>
+
+/**
+ * Clarifies the issue of compiler having a conflict when a file has been included
+ * as the third for two files that have previously included the same files.
+*/
 #pragma once
 
 
