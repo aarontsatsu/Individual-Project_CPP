@@ -31,8 +31,8 @@ int main() {
     static unordered_map<string, vector<string>> locationToAirportsMap;
 
 
-/**
-   * Reading from the airports.csv file
+/*
+   * Reading and processing the airports.csv file
  **/
     try {
         ifstream airportsFile("airports.csv");
@@ -45,6 +45,10 @@ int main() {
         string country;
         string code;
         char delim = ',';
+
+        /**
+         * How to Split strings in C++ - javatpoint. (n.d.). www.javatpoint.com. https://www.javatpoint.com/how-to-split-strings-in-cpp
+        */
 
         while (getline(airportsFile, row)) {
             if (count == 0) {
@@ -64,7 +68,9 @@ int main() {
             values = city + ", " + country;
 
             airportsToPlaces.insert({key, values});
-            /* Create new vector of airport codes and store them as airportValues */
+
+            
+            //keeps airport codes
             vector<string> airportValues;
             for (const auto& [k, v] : airportsToPlaces) {
                 if (v == values) {
@@ -106,6 +112,8 @@ int main() {
             }
 
         }
+
+        //iterating through the locationToAirportMap unordered_map
         for (auto &itr: locationToAirportsMap) {
             for (string i: itr.second){
                 cout << itr.first << ": " << i << endl;
@@ -121,8 +129,8 @@ int main() {
         cout << "File opening failed!" << e.what() << endl;
     }
 
-/**
-    * Read and process routes.csv file
+/*
+    * Reading and processing the routes.csv file
 **/
    try{
        ifstream routesFile("routes.csv");
@@ -171,6 +179,8 @@ int main() {
 
    //reading from the input file
     ifstream inputFile("accra-winnipeg.txt");
+
+    // initialLoc and destinationLoc will serve as the start and end points for the BFS search
     string initialLoc;
     string destinationLoc;
 
@@ -187,7 +197,10 @@ int main() {
 
 
    
-   
+    /*
+     * The following lines of code create an output.txt file where 
+     the various routes will be written. 
+    */
    ofstream outputFile("output.txt");
    vector<string> path = newBFSObj.algSearch(initialLoc, destinationLoc);
 
@@ -200,7 +213,7 @@ int main() {
         numFlights ++;
     }
 
-    outputFile << "Total Flight: " + numFlights;
+    outputFile << "Total Flights: " + numFlights;
    }
    else
    {

@@ -2,6 +2,10 @@
 #include <string>
 using namespace std;
 
+/**
+ * The Airports class represents all the features of an airport
+ * It also defines getters and setters to retrieve and initialize the features.
+*/
 class Airports
 {
     protected:

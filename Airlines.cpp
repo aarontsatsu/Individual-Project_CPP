@@ -2,6 +2,10 @@
 #include <string>
 using namespace std;
 
+/**
+ * The Airlines class represents all the features of an airline
+ * It also defines getters and setters to retrieve and initialize the features.
+*/
 class Airlines
 {
     protected:

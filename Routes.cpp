@@ -4,6 +4,10 @@
 
 using namespace std;
 
+/**
+ * The Routes class represents all the features of a route
+ * It also defines getters and setters to retrieve and initialize the features.
+*/
 class Routes{
 
     // instance variables of the Routes class
@@ -14,7 +18,7 @@ class Routes{
     int stops;
     
     public :
-    // constructor method for the instance variables
+    // constructor for the instance variables
     Routes(string airlineCode, string airlineID, string destinationAirportCode, int stops)
     {
         this->airlineCode = airlineCode;
@@ -66,9 +70,9 @@ class Routes{
         this->stops = stops;
     }
 
-    // override toString method for this class.
+    //toString method for the Routes class
     string toString()
     {
-        return "Routes{airlineCode= " + airlineCode + ", airlineID= " + airlineID + ", destinationAirportCode= " + destinationAirportCode + ", stops= " + to_string(stops) + "})";
+        return "Routes{airlineCode= " + airlineCode + ", airlineID= " + airlineID + ", destinationAirportCode= " + destinationAirportCode + ", stops= " + to_string(stops) + "}";
     }
 };

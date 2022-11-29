@@ -6,7 +6,10 @@
 #include "Routes.cpp"
 #include "Node.cpp"
 
-
+/**
+ * The BFS class implements methods like contains and equals.
+ * The class implmements the method that does a BFS search given a start and end point.
+*/
 class BFS
 {
     protected:
@@ -15,6 +18,10 @@ class BFS
     queue<Node> frontier;
     set<string> exploredSet;
     vector<string> airports;
+
+    /**
+     * GeeksforGeeks. (2022, October 14). unordered_map in C++ STL. https://www.geeksforgeeks.org/unordered_map-in-cpp-stl/
+    */
     unordered_map<string, string> airportsToPlaces;
     unordered_map<string, vector<string>> locationToAirportsMap;
 
@@ -93,6 +100,10 @@ vector<string> BFS::algSearch(string initialLoc, string destinationLoc){
         frontier.push(airportNode);
     }
 
+    
+    /**
+     * Techie Delight. (2022, February 6). Iterate through a queue in C++. https://www.techiedelight.com/iterate-through-a-queue-in-cpp/
+    */
     while(frontier.size() != 0)
     {
         Node currentNode = frontier.pop();
