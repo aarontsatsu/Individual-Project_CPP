@@ -188,7 +188,7 @@ int main() {
     getline(inputFile,destinationLoc);
 
 
-   BFS newBFSObj(airportsToPlaces, locationToAirportsMap);
+   BFS newBFSObj(airportsToPlaces, locationToAirportsMap, routesMap);
    queue<Node> frontier;
    set<string> exploredSet;
    vector<string> airports = locationToAirportsMap.at(initialLoc);

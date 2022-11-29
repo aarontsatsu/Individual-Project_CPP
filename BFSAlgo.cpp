@@ -24,9 +24,10 @@ class BFS
     */
     unordered_map<string, string> airportsToPlaces;
     unordered_map<string, vector<string>> locationToAirportsMap;
+    unordered_map<string, vector<Routes>> routesMap;
 
     public:
-    BFS(unordered_map<string, string> airportsMap, unordered_map<string, vector<string>> locationsMap);
+    BFS(unordered_map<string, string> airportsMap, unordered_map<string, vector<string>> locationsMap, unordered_map<string, vector<Routes>> routesMap);
 
     bool contains(queue<Node> aQueue, Node aNode);
 
@@ -43,10 +44,11 @@ class BFS
 };
 
 
-BFS::BFS (unordered_map<string, string> airportsMap, unordered_map<string, vector<string>> locationsMap)
+BFS::BFS (unordered_map<string, string> airportsMap, unordered_map<string, vector<string>> locationsMap, unordered_map<string, vector<Routes>> routesMap)
     {
         this-> airportsToPlaces = airportsMap;
         this->locationToAirportsMap = locationsMap;
+        this->routesMap = routesMap;
     }
 
 bool BFS::contains(queue<Node> aQueue, Node aNode)
@@ -109,7 +111,7 @@ vector<string> BFS::algSearch(string initialLoc, string destinationLoc){
         Node currentNode = frontier.pop();
 
         exploredSet.insert(currentNode.getAirportCode());
-        vector<Routes> successorStates = routesMap.get(currentNode.getAirportCode());
+        vector<Routes> successorStates = routesMap.at(currentNode.getAirportCode());
 
         if (equals(successorStates, NULL) == false)
         {
