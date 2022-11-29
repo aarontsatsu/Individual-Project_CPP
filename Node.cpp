@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include "Routes.cpp"
+#pragma once
+
 using namespace std;
 
 /**
