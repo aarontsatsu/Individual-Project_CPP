@@ -29,9 +29,9 @@ class BFS
     public:
     BFS(unordered_map<string, string> airportsMap, unordered_map<string, vector<string>> locationsMap, unordered_map<string, vector<Routes>> routesMap);
 
-    bool contains(queue<Node> aQueue, Node aNode);
+    bool contains(queue<Node> anyQueue, Node anyNode);
 
-    bool contains(set<string> aSet, string aString);
+    bool contains(set<string> anySet, string anyString);
 
     bool equals(Node node1, Node node2);
 
@@ -51,25 +51,25 @@ BFS::BFS (unordered_map<string, string> airportsMap, unordered_map<string, vecto
         this->routesMap = routesMap;
     }
 
-bool BFS::contains(queue<Node> aQueue, Node aNode)
+bool BFS::contains(queue<Node> anyQueue, Node anyNode)
 {
     bool check;
-    queue<Node> newQueueCopy = aQueue;
+    queue<Node> newQueueCopy = anyQueue;
     while(!newQueueCopy.empty())
     {
         Node item = newQueueCopy.front();
-        check = equals(item, aNode);
+        check = equals(item, anyNode);
     }
     return check;
 }
 
 
-bool BFS::contains(set<string> aSet, string aString)
+bool BFS::contains(set<string> anySet, string anyString)
 {
     bool check;
-    for(auto item : aSet)
+    for(auto item : anySet)
     {
-        check = (item == aString);
+        check = (item == anyString);
         if(check == true)
             break;
     }
