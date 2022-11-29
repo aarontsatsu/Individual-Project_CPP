@@ -25,7 +25,7 @@ class BFS
 
     bool contains(queue<Node> aQueue, Node aNode);
 
-    bool contains(set<string> aSet, Node aNode);
+    bool contains(set<string> aSet, string aString);
 
     bool equals(Node node1, Node node2);
 
@@ -33,7 +33,7 @@ class BFS
 
     bool equals(list<Routes> firstList, any secondItem);
 
-    list<string> algSearch(string initialLoc, string destinationLoc);
+    vector<string> algSearch(string initialLoc, string destinationLoc);
 
 };
 
@@ -57,12 +57,12 @@ bool BFS::contains(queue<Node> aQueue, Node aNode)
 }
 
 
-bool BFS::contains(set<string> aSet, Node aNode)
+bool BFS::contains(set<string> aSet, string aString)
 {
     bool check;
     for(auto item : aSet)
     {
-        check = (item == aNode.getAirportCode());
+        check = (item == aString);
         if(check == true)
             break;
     }
@@ -99,6 +99,7 @@ vector<string> BFS::algSearch(string initialLoc, string destinationLoc)
     while(frontier.size() != 0)
     {
         Node currentNode = frontier.pop();
+
         exploredSet.insert(currentNode.getAirportCode());
         list<Routes> successorStates = routesMap.get(currentNode.getAirportCode());
 
